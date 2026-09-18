@@ -1,0 +1,25 @@
+# Runtime dependencies for the SWC repair + density pipeline.
+#
+#   python -m venv .venv
+#   source .venv/bin/activate        # Windows: .venv\Scripts\activate
+#   pip install -r requirements.txt
+#
+# Python 3.9 or newer. On 3.11+ the only real dependencies are numpy and scipy;
+# everything else the pipeline uses is in the standard library.
+#
+# Nothing here is needed to run blender_qc.py. That script imports bpy and
+# mathutils, which only exist inside Blender's own bundled interpreter and are
+# not installable from PyPI. If PROJECT is set in its CONFIG block it also
+# imports cellpaths.py, which on Blender 3.x/4.x (Python 3.10/3.11) needs
+# nothing beyond what ships with Blender.
+
+numpy>=1.21
+scipy>=1.7
+
+# Depth plots. The pipeline runs without it - the plots stage is skipped with a
+# message - so leave it out if you only want the CSVs.
+matplotlib>=3.5
+
+# TOML reading for cells.toml. Stdlib as tomllib from Python 3.11, so this only
+# installs on older interpreters.
+tomli>=2.0 ; python_version < "3.11"

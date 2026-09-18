@@ -1,0 +1,13 @@
+# Exact versions this pipeline was built and verified against.
+#
+# Use this instead of requirements.txt when you want a run to be reproducible
+# a year from now - which for a measurement pipeline feeding a figure is
+# usually what you want:
+#
+#   pip install -r requirements-lock.txt
+#
+# Verified on CPython 3.12.3 (Linux).
+
+numpy==2.4.4
+scipy==1.17.1
+matplotlib==3.10.8
